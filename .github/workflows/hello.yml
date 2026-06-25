@@ -1,16 +1,15 @@
-
 name: Hello
+
 on:
   workflow_dispatch:
+
 jobs:
   say-hello:
-     run on: ubuntu-latest
-  
-  steps:
-   - name: say hello to everyone 
-           
-     
-    run: echo" hello dost "
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Say hello to everyone
+        run: echo "hello dost"
   
 
 
