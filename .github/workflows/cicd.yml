@@ -1,0 +1,44 @@
+name: CICD
+
+on:
+  workflow_dispatch:
+
+jobs:
+  code:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Display code step
+        run: echo "Code stage completed"
+
+  build:
+    runs-on: ubuntu-22.04
+    needs: code
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build application
+        run: echo "Building application..."
+
+  test:
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: echo "Running tests..."
+
+  deploy:
+    runs-on: ubuntu-22.04
+    needs: test
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy application
+        run: echo "Deploying application..."
