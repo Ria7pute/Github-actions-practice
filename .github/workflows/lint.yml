@@ -1,4 +1,3 @@
-
 name: Autolinter
 
 on:
@@ -11,4 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout/clone the code
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
+
+      - name: Install Linter
+        run: pip install ruff
